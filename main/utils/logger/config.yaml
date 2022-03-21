@@ -1,0 +1,16 @@
+version: 1
+
+formatters:
+  default:
+    format: '%(asctime)s.%(msecs)03d: %(levelname)-6s %(message)s'
+    datefmt: '%H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: default
+
+loggers:
+  taf_logger:
+    handlers: [ console ]
