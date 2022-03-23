@@ -4,6 +4,7 @@ from main.pages.dropdown_page.dropdown_page import DropdownPage
 from main.utils.browser_manager.browser_manager import BrowserManager
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC008UserIsAbleToSelectValueFromDropdownListTest(BaseTest):
     dropdown_page = DropdownPage()

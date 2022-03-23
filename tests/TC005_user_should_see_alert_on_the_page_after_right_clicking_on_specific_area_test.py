@@ -4,6 +4,7 @@ from main.pages.context_menu_page.context_menu_page import ContextMenuPage
 from main.utils.browser_manager.browser_manager import BrowserManager
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC005UserShouldSeeAlertOnThePageAfterRightClickingOnSpecificAreaTest(BaseTest):
     context_menu_page = ContextMenuPage()

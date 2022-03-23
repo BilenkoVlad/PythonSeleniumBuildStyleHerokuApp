@@ -4,6 +4,7 @@ from main.pages.form_authentication_page.form_authentication_page import FormAut
 from main.pages.form_authentication_page.secure_page.secure_page import SecurePage
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC0014UserIsAbleToLoginTest(BaseTest):
     form_authentication_page = FormAuthenticationPage()

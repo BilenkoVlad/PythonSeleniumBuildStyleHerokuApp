@@ -3,6 +3,7 @@ import pytest
 from main.pages.dynamic_controls_page.dynamic_controls_page import DynamicControlsPage
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC009UserIsAbleToEnableDisableInputFieldAndAddDeleteCheckboxTest(BaseTest):
     dynamic_controls_page = DynamicControlsPage()

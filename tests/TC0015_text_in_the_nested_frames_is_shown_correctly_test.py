@@ -5,6 +5,7 @@ from main.pages.frames_page.nested_frames_page.nested_frames_page import NestedF
 from main.utils.browser_manager.browser_manager import BrowserManager
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC0015TextInTheNestedFramesIsShownCorrectlyTest(BaseTest):
     frames_page = FramesPage()
@@ -25,7 +26,7 @@ class TC0015TextInTheNestedFramesIsShownCorrectlyTest(BaseTest):
         BrowserManager().switch_to_frame(self.nested_frames_page.MIDDLE_FRAME_SET_ELEMENT())
         BrowserManager().switch_to_frame(self.nested_frames_page.LEFT_FRAME_ELEMENT())
 
-        self.nested_frames_page\
+        self.nested_frames_page \
             .the_element_text_equals(self.nested_frames_page.TEXT_ELEMENT(), "LEFT")
 
         BrowserManager().switch_to_default_content()
@@ -37,18 +38,18 @@ class TC0015TextInTheNestedFramesIsShownCorrectlyTest(BaseTest):
             .the_element_text_equals(self.nested_frames_page.MIDDLE_TEXT_ELEMENT(), "MIDDLE")
 
         BrowserManager().switch_to_default_content()
-        
+
         BrowserManager().switch_to_frame(self.nested_frames_page.MIDDLE_FRAME_SET_ELEMENT())
         BrowserManager().switch_to_frame(self.nested_frames_page.RIGHT_FRAME_ELEMENT())
 
         self.nested_frames_page \
             .the_element_text_equals(self.nested_frames_page.TEXT_ELEMENT(), "RIGHT")
-        
+
         BrowserManager().switch_to_default_content()
-        
+
         BrowserManager().switch_to_frame(self.nested_frames_page.BOTTOM_FRAME_ELEMENT())
 
         self.nested_frames_page \
             .the_element_text_equals(self.nested_frames_page.TEXT_ELEMENT(), "BOTTOM")
-        
+
         BrowserManager().switch_to_default_content()

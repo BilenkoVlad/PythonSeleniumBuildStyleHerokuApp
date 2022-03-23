@@ -7,6 +7,7 @@ from main.pages.dynamic_loading_page.example2_element_rendered.example2_element_
 from main.utils.browser_manager.browser_manager import BrowserManager
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC0010VerifyThatElementsDynamicallyLoadedTest(BaseTest):
     dynamic_loading_page = DynamicLoadingPage()

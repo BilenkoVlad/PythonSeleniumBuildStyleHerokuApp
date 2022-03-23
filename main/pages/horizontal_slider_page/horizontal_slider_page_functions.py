@@ -28,7 +28,8 @@ class HorizontalSliderPageFunctions:
     def move_slider_down_by_mouse_with_assertion(self):
         j = len(self._rangeValuesDown) - 1
         for i in range(25, -30, 5):
-            ActionsManager().get_actions().move_to_element_with_offset(BrowserManager().find_element_by_XPATH(self._SLIDER))
+            ActionsManager().get_actions().move_to_element_with_offset(
+                BrowserManager().find_element_by_XPATH(self._SLIDER))
             ActionsManager().get_actions().move_by_offset(i, 0).click().perform()
             self._assertions.the_element_text_equals(BrowserManager().find_element_by_XPATH(self._RANGE_NUMBER),
                                                      self._rangeValuesDown[j])

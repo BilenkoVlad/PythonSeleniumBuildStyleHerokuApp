@@ -3,6 +3,7 @@ import pytest
 from main.pages.hovers_page.hovers_page import HoversPage
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC0017UserIsAbleToSeeAdditionalInformationAfterHoverTheMouseOntoAvatarTest(BaseTest):
     hovers_page = HoversPage()

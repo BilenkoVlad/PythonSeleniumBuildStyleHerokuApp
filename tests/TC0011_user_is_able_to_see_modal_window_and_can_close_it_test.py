@@ -3,6 +3,7 @@ import pytest
 from main.pages.entry_ad_page.entry_ad_page import EntryAdPage
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC0011UserIsAbleToSeeModalWindowAndCanCloseItTest(BaseTest):
     entry_ad_page = EntryAdPage()

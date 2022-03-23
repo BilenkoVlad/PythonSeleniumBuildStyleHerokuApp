@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from main.pages.key_presses_page.key_presses_page import KeyPressesPage
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC0021CorrectInformationAboutPressedKeyInKeyboardIsShownOnThePageTest(BaseTest):
     key_presses_page = KeyPressesPage()

@@ -4,6 +4,7 @@ from main.pages.forgot_password_page.forgot_password_page import ForgotPasswordP
 from main.utils.generator.generator import Generator
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC0013ForgotPasswordFunctionalityWorksCorrectlyTest(BaseTest):
     forgot_password_page = ForgotPasswordPage()

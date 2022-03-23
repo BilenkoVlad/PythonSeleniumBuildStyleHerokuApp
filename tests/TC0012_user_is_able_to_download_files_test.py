@@ -3,6 +3,7 @@ import pytest
 from main.pages.file_download_page.file_download_page import FileDownloadPage
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC0012UserIsAbleToDownloadFilesTest(BaseTest):
     file_download_page = FileDownloadPage()

@@ -3,6 +3,7 @@ import pytest
 from main.pages.disappearing_elements_page.disappearing_elements_page import DisappearingElementsPage
 from tests.base_test import BaseTest
 
+
 @pytest.mark.smoke
 class TC006VerifyingThatHiddenItemCanBeShownAfterPollingThePageTest(BaseTest):
     disappearing_elements_page = DisappearingElementsPage()
