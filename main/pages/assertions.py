@@ -4,26 +4,26 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from main.utils.browser_manager.browser_manager import BrowserManager
 from main.utils.browser_manager.driver import get_driver
+from main.utils.logger.LoggingMixin import LoggingMixin
 
 
-class Assertions:
-    web_driver_wait = WebDriverWait(get_driver(), 10)
+class Assertions(LoggingMixin):
 
     def the_element_is_displayed(self, web_element):
         assert web_element.is_displayed(), "Web element is not displayed"
         return self
 
     def the_element_is_enabled(self, web_element):
-        assert web_element.isEnabled(), "Web element is not enabled"
+        assert web_element.is_enabled(), "Web element is not enabled"
         return self
 
     def the_element_is_disabled(self, web_element):
-        assert not web_element.isEnabled(), "Web element is not disabled"
+        assert not web_element.is_enabled(), "Web element is not disabled"
         return self
 
     def the_polling_condition(self, condition):
         try:
-            while condition():
+            while not condition():
                 BrowserManager().refresh_page()
             return self
         except:
@@ -49,11 +49,13 @@ class Assertions:
         return self
 
     def the_element_text_equals(self, web_element, expected_text):
-        assert web_element.text, expected_text
+        self.logger.debug(f"Text from web element is {web_element.text}. Expected text is {expected_text}")
+        assert web_element.text.strip(), expected_text
         return self
 
     def the_alert_text_equals(self, expected_text):
-        assert BrowserManager().get_alert_text(), expected_text
+        self.logger.debug(f"{get_driver().switch_to.alert.text} text is displayed")
+        assert get_driver().switch_to.alert.text, expected_text
         return self
 
     def the_page_url_contains(self, url):
@@ -77,15 +79,13 @@ class Assertions:
         assert text1 == text2
         return self
 
-    def the_element_is_displayed_with_condition(self, web_element, xpath):
-        self.web_driver_wait.until(expected_conditions.visibility_of_element_located(By.XPATH(xpath)))
-        self.the_element_is_displayed(web_element=web_element)
+    def the_element_is_displayed_with_condition(self, xpath):
+        WebDriverWait(get_driver(), 10).until(expected_conditions.visibility_of_element_located((By.XPATH, xpath)))
         return self
 
     def the_alert_is_presented(self):
         try:
-            self.web_driver_wait.until(expected_conditions.alert_is_present())
-            BrowserManager().switch_to_alert()
+            WebDriverWait(get_driver(), 10).until(expected_conditions.alert_is_present())
             assert True
         except:
             assert False

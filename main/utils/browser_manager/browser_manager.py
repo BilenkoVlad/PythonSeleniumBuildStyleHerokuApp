@@ -59,7 +59,7 @@ class BrowserManager:
         self.logger.debug(f"Current site URL is '{url}'")
         return url
 
-    def switchToFrame(self, web_element):
+    def switch_to_frame(self, web_element):
         self.logger.debug("Switch to frame")
         get_driver().switch_to.frame(web_element)
 
@@ -69,20 +69,17 @@ class BrowserManager:
 
     def switch_to_alert(self):
         self.logger.debug("Switch to alert")
-        get_driver().switch_to.alert
+        var = get_driver().switch_to.alert
+        return var
 
     def accept_alert(self):
         self.logger.debug("Accept alert")
-        self.switch_to_alert().accept()
+        get_driver().switch_to.alert.accept()
 
     def dismiss_alert(self):
         self.logger.debug("Dismiss alert")
-        self.switch_to_alert().dismiss()
+        get_driver().switch_to.alert.dismiss()
 
     def send_keys_to_alert(self, text):
         self.logger.debug(f"Send {text} into alert")
-        self.switch_to_alert().send_keys(text)
-
-    def get_alert_text(self):
-        self.logger.debug(f"{self.switch_to_alert().text} text is displayed")
-        return self.switch_to_alert().text
+        get_driver().switch_to.alert.send_keys(text)
